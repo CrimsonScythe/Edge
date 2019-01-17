@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    android:layout_width="160dp"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/blurviewcolor"
+    android:layout_gravity="start|center"
+    android:orientation="vertical">
+
+    <TextView
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apps Edge"
+        android:textColor="@color/edgecolorwhite"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+
+        />
+
+    <Button
+        android:tag="edit"
+        android:padding="15dp"
+        android:id="@+id/editapps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blurviewcolor"
+        android:text="EDIT"
+        android:textColor="@color/edgecolorwhite"
+        />
+
+    <GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/gridlayout"
+    android:orientation="vertical"
+    android:columnCount="2"
+    android:layout_gravity=""
+    >
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon0"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"
+        />
+
+        <ImageView
+            android:id="@+id/appremoveicon0"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon1"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"
+        />
+
+        <ImageView
+            android:id="@+id/appremoveicon1"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon2"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"
+        />
+
+        <ImageView
+            android:id="@+id/appremoveicon2"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon3"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"
+        />
+
+        <ImageView
+            android:id="@+id/appremoveicon3"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon4"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/appremoveicon4"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_column="1"
+        android:layout_row="0">
+
+    <ImageView
+        android:id="@+id/appicon5"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/appremoveicon5"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon6"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/appremoveicon6"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon7"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/appremoveicon7"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon8"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/appremoveicon8"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout>
+
+    <ImageView
+        android:id="@+id/appicon9"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_circle_outline"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:layout_margin="15dp"/>
+
+        <ImageView
+            android:id="@+id/appremoveicon9"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</GridLayout>
+
+
+
+
+
+
+
+
+
+
+</GridLayout>

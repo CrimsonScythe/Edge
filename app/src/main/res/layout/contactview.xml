@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout android:layout_width="160dp"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blurviewcolor"
+    android:layout_gravity="start|center"
+    android:orientation="vertical"
+    android:id="@+id/grid1">
+
+    <TextView
+        android:padding="15dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contacts Edge"
+        android:textColor="@color/edgecolorwhite"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        />
+
+
+    <Button
+        android:layout_marginTop="0dp"
+        android:tag="edit"
+        android:padding="15dp"
+        android:id="@+id/editcontacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blurviewcolor"
+        android:text="EDIT"
+        android:textColor="@color/edgecolorwhite"
+        />
+
+
+    <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridlayout"
+        android:orientation="vertical"
+        android:columnCount="2"
+        android:layout_gravity=""
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl0"
+            >
+
+
+        <ImageView
+            android:id="@+id/contacticon0"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"
+            />
+
+            <ImageView
+                android:id="@+id/contactremoveicon0"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon0"
+                android:layout_centerHorizontal="true"/>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl1">
+
+            <ImageView
+                android:id="@+id/contactremoveicon1"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+        <ImageView
+            android:id="@+id/contacticon1"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"            />
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon1"
+                android:layout_centerHorizontal="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl2"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon2"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon2"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"
+            />
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon2"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl3"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon3"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon3"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"
+            />
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon3"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl4"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon4"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon4"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"
+            />
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon4"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_column="1"
+            android:layout_row="0"
+            android:orientation="vertical"
+            android:id="@+id/rl5"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon5"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon5"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"/>
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon5"
+                android:layout_centerHorizontal="true"  />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl6"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon6"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon6"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"/>
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon6"
+                android:layout_centerHorizontal="true"  />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl7"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon7"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon7"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"/>
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon7"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl8"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon8"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon8"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"/>
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon8"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/rl9"
+            >
+
+            <ImageView
+                android:id="@+id/contactremoveicon9"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_circle_24px"/>
+
+
+            <ImageView
+            android:id="@+id/contacticon9"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_box_outline"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="0dp"/>
+
+            <TextView
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:id="@+id/contacttext9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contacticon9"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+
+
+    </GridLayout>
+
+
+</GridLayout>
+
+

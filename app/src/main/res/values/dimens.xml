@@ -1,0 +1,32 @@
+<resources>
+    <dimen name="standard_margin">5dp</dimen>
+
+    <dimen name="display_primary_text_port">56sp</dimen>
+    <dimen name="display_secondary_text_port">34dp</dimen>
+    <dimen name="panel_1_button_text_port">34sp</dimen>
+    <dimen name="panel_2_button_text_port">15sp</dimen>
+
+    <dimen name="display_primary_text_land">34sp</dimen>
+    <dimen name="display_secondary_text_land">34sp</dimen>
+    <dimen name="panel_1_button_text_land">24sp</dimen>
+    <dimen name="panel_2_button_text_land">20sp</dimen>
+    
+    <dimen name="imageview_width">12dp</dimen>
+    <dimen name="imageview_height">12dp</dimen>
+
+    <dimen name="default_card_margin">5dp</dimen>
+
+</resources>
+
+
+<!--<dimen name="standard_margin">16dp</dimen>-->
+
+<!--<dimen name="display_primary_text_port">56sp</dimen>-->
+<!--<dimen name="display_secondary_text_port">34dp</dimen>-->
+<!--<dimen name="panel_1_button_text_port">34sp</dimen>-->
+<!--<dimen name="panel_2_button_text_port">20sp</dimen>-->
+
+<!--<dimen name="display_primary_text_land">34sp</dimen>-->
+<!--<dimen name="display_secondary_text_land">34sp</dimen>-->
+<!--<dimen name="panel_1_button_text_land">24sp</dimen>-->
+<!--<dimen name="panel_2_button_text_land">20sp</dimen>-->

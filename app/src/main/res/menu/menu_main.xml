@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.crimsonscythe.edge.MainActivity">
+    <item
+        android:id="@+id/edge_settings"
+        android:orderInCategory="100"
+        android:title="@string/edge_panel_handle"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/reorder"
+        android:orderInCategory="0"
+        android:title="@string/reorder"
+        app:showAsAction="never"
+        />
+
+</menu>
