@@ -2,13 +2,23 @@ package com.crimsonscythe.edge;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -30,6 +40,7 @@ import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
 import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
 
 import java.io.IOException;
+import java.security.Provider;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,8 +54,16 @@ public class WeatherViewFragment extends android.app.Fragment {
     private LruCache lruCache;
     private String icon;
     private long TIME_THRESHHOLD = (60*60000);
+//    private long TIME_THRESHHOLD = (0);
 
     private long elapsedTime;
+    private double latitude;
+    private double longitude;
+
+
+
+
+    @SuppressLint("MissingPermission")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -62,21 +81,73 @@ public class WeatherViewFragment extends android.app.Fragment {
         weathericon = view.findViewById(R.id.weathericon);
 
 
+
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
-        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
-                try {
-                    List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    Log.i("ohmy", "address is:"+list.get(0));
-                    currentLocation.setText(list.get(0).getLocality());
-                } catch (IOException e) {
-                    Log.i("stupid","stupid");
-                    e.printStackTrace();
+        if (fusedLocationProviderClient.getLastLocation()==null){
+            final ProgressDialog progressDialog = ProgressDialog.show(getActivity(), "Loading", "Getting your location..",
+                    true, true);
+
+            // get location
+            LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+            Criteria criteria = new Criteria();
+            String provider = String.valueOf(locationManager.getBestProvider(criteria, true));
+            locationManager.requestSingleUpdate(provider, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    progressDialog.dismiss();
+                    Log.i("Lat", String.valueOf(location.getLatitude()));
+                    Log.i("Long", String.valueOf(location.getLongitude()));
+
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+
+                    Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+                    try {
+                        List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                        currentLocation.setText(list.get(0).getLocality());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 }
-            }
-        });
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                }
+
+                @Override
+                public void onProviderEnabled(String provider) {
+
+                }
+
+                @Override
+                public void onProviderDisabled(String provider) {
+
+                }
+            }, null);
+        } else {
+            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+                    try {
+//                    try {
+                        latitude = location.getLatitude();
+                        longitude = location.getLongitude();
+
+                        List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                        Log.i("ohmy", "address is:" + list.get(0));
+                        currentLocation.setText(list.get(0).getLocality());
+//                    } catch (NullPointerException e){Log.i("null pointer", "null");e.printStackTrace();}
+                    } catch (IOException e) {
+                        Log.i("stupid", "stupid");
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
 
         Log.i("xxxx", String.valueOf(System.currentTimeMillis()));
         Log.i("xxxxx", String.valueOf(TIME_THRESHHOLD));
@@ -98,13 +169,17 @@ public class WeatherViewFragment extends android.app.Fragment {
         return view;
     }
 
+
+
     public void Initialize(){
         OpenWeatherMapHelper helper = new OpenWeatherMapHelper();
         helper.setApiKey(API_KEY);
         helper.setUnits(Units.METRIC);
         helper.setLang(Lang.ENGLISH);
 
-        helper.getCurrentWeatherByCityName("Copenhagen", new OpenWeatherMapHelper.CurrentWeatherCallback() {
+
+
+        helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new OpenWeatherMapHelper.CurrentWeatherCallback() {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
 
@@ -137,7 +212,9 @@ public class WeatherViewFragment extends android.app.Fragment {
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.ACCESS_FINE_LOCATION},777);
         }
+
     }
+
 
 
     @Override
