@@ -53,12 +53,12 @@ public class WeatherViewFragment extends android.app.Fragment {
     SharedPreferences sharedPreferences;
     private LruCache lruCache;
     private String icon;
-    private long TIME_THRESHHOLD = (60*60000);
-//    private long TIME_THRESHHOLD = (0);
+//    private long TIME_THRESHHOLD = (60*60000);
+    private long TIME_THRESHHOLD = (0);
 
     private long elapsedTime;
-    private double latitude;
-    private double longitude;
+    private static double latitude;
+    private static double longitude;
 
 
 
@@ -87,7 +87,7 @@ public class WeatherViewFragment extends android.app.Fragment {
         if (fusedLocationProviderClient.getLastLocation()==null){
             final ProgressDialog progressDialog = ProgressDialog.show(getActivity(), "Loading", "Getting your location..",
                     true, true);
-
+            Log.i("null_is", "true");
             // get location
             LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
             Criteria criteria = new Criteria();
@@ -102,9 +102,17 @@ public class WeatherViewFragment extends android.app.Fragment {
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
 
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putFloat("lat", (float) latitude);
+                    editor.putFloat("long", (float) longitude);
+                    editor.apply();
+
                     Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
                     try {
                         List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                        Log.i("lat", String.valueOf(latitude));
+                        Log.i("long", String.valueOf(longitude));
                         currentLocation.setText(list.get(0).getLocality());
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -128,6 +136,7 @@ public class WeatherViewFragment extends android.app.Fragment {
                 }
             }, null);
         } else {
+            Log.i("null_is", "false");
             fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
@@ -137,8 +146,15 @@ public class WeatherViewFragment extends android.app.Fragment {
                         latitude = location.getLatitude();
                         longitude = location.getLongitude();
 
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putFloat("lat", (float) latitude);
+                        editor.putFloat("long", (float) longitude);
+                        editor.apply();
+
                         List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        Log.i("ohmy", "address is:" + list.get(0));
+                        Log.i("lat2", String.valueOf(latitude));
+                        Log.i("long2", String.valueOf(longitude));
                         currentLocation.setText(list.get(0).getLocality());
 //                    } catch (NullPointerException e){Log.i("null pointer", "null");e.printStackTrace();}
                     } catch (IOException e) {
@@ -148,6 +164,13 @@ public class WeatherViewFragment extends android.app.Fragment {
                 }
             });
         }
+
+        Log.i("lat3", String.valueOf(latitude));
+        Log.i("long3", String.valueOf(longitude));
+
+
+
+
 
         Log.i("xxxx", String.valueOf(System.currentTimeMillis()));
         Log.i("xxxxx", String.valueOf(TIME_THRESHHOLD));
@@ -178,10 +201,17 @@ public class WeatherViewFragment extends android.app.Fragment {
         helper.setLang(Lang.ENGLISH);
 
 
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new OpenWeatherMapHelper.CurrentWeatherCallback() {
+
+        Log.i("lat4", String.valueOf(sharedPreferences.getFloat("lat", 0.0f)));
+        Log.i("long4", String.valueOf(sharedPreferences.getFloat("long", 0.0f)));
+
+        helper.getCurrentWeatherByGeoCoordinates((double)sharedPreferences.getFloat("lat", (float) 55.7073933), (double)sharedPreferences.getFloat("long", (float) 12.5748265), new OpenWeatherMapHelper.CurrentWeatherCallback() {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
+
+
 
                 currentTemp.setText(String.valueOf((int) currentWeather.getMain().getTemp())+"°C\n"+currentWeather.getWeatherArray().get(0).getDescription());
                 lowview.setText("low\n"+String.valueOf((int) Math.floor(currentWeather.getMain().getTempMin())));
