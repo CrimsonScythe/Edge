@@ -38,6 +38,7 @@ import com.kwabenaberko.openweathermaplib.Lang;
 import com.kwabenaberko.openweathermaplib.Units;
 import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
 import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
+import com.kwabenaberko.openweathermaplib.models.threehourforecast.ThreeHourForecast;
 
 import java.io.IOException;
 import java.security.Provider;
@@ -207,7 +208,26 @@ public class WeatherViewFragment extends android.app.Fragment {
         Log.i("lat4", String.valueOf(sharedPreferences.getFloat("lat", 0.0f)));
         Log.i("long4", String.valueOf(sharedPreferences.getFloat("long", 0.0f)));
 
-        helper.getCurrentWeatherByGeoCoordinates((double)sharedPreferences.getFloat("lat", (float) 55.7073933), (double)sharedPreferences.getFloat("long", (float) 12.5748265), new OpenWeatherMapHelper.CurrentWeatherCallback() {
+//        helper.getThreeHourForecastByGeoCoordinates((double)sharedPreferences.getFloat("lat", (float) 55.7073933),
+//                (double)sharedPreferences.getFloat("long", (float) 12.5748265), new OpenWeatherMapHelper.ThreeHourForecastCallback(){
+//
+//                    @Override
+//                    public void onSuccess(ThreeHourForecast threeHourForecast) {
+//                        int counr = threeHourForecast.getCnt();
+//                        for (int i=0; i<counr-1; i++){
+//                            Log.i("three days", threeHourForecast.getThreeHourWeatherArray().get(i).getDtTxt());
+//                            Log.i("three hour", String.valueOf(threeHourForecast.getThreeHourWeatherArray().get(i).getMain().getTemp()));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//
+//                    }
+//                });
+
+                helper.getCurrentWeatherByGeoCoordinates((double)sharedPreferences.getFloat("lat", (float) 55.7073933),
+                (double)sharedPreferences.getFloat("long", (float) 12.5748265), new OpenWeatherMapHelper.CurrentWeatherCallback() {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
 
