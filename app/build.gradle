@@ -6,8 +6,8 @@ android {
         applicationId "com.crimsonscythe.edge"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 6
-        versionName "1.0"
+        versionCode 8
+        versionName "1.0011"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
